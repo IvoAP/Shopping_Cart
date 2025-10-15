@@ -1,7 +1,10 @@
 import { Navbar as NavbarBS, Container, Nav, Button } from "react-bootstrap"
 import { FaShoppingCart } from "react-icons/fa";
+import { useShoppingCart } from "../context/ShoppingCartContext";
 
 export function Navbar() {
+    const { cartQuantity } = useShoppingCart()
+    
     return (
         <NavbarBS className="bg-white shadow-sm mb-3">
             <Container> 
@@ -19,19 +22,21 @@ export function Navbar() {
                     size = "1.5em"
                     color="#1E90FF"
                 />
-                <div className="rounded-circle bg-danger d-flex justify-content-center align-items-center"
-                    style={{
-                        color: "white",
-                        width: "1.5rem",
-                        height: "1.5rem",
-                        position: "absolute",
-                        bottom : 0,
-                        right: 0,
-                        transform: "translate(25%, 25%)"
-                    }}
-                >
-                3
-                </div>
+                {cartQuantity > 0 && (
+                  <div className="rounded-circle bg-danger d-flex justify-content-center align-items-center"
+                      style={{
+                          color: "white",
+                          width: "1.5rem",
+                          height: "1.5rem",
+                          position: "absolute",
+                          bottom : 0,
+                          right: 0,
+                          transform: "translate(25%, 25%)"
+                      }}
+                  >
+                    {cartQuantity}
+                  </div>
+                )}
                </Button>
             </Container>
         </NavbarBS>
