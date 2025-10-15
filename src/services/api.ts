@@ -2,7 +2,7 @@ import axios from "axios"
 
 const api = axios.create({
   baseURL: "https://fakestoreapi.com",
-  timeout: 10000, // 10 segundos
+  timeout: 10000, // 10 seconds
   headers: {
     "Content-Type": "application/json"
   }
@@ -11,8 +11,7 @@ const api = axios.create({
 
 api.interceptors.request.use(
   (config) => {
-    // Você pode adicionar tokens, logs, etc aqui
-    console.log(`📡 Request: ${config.method?.toUpperCase()} ${config.url}`)
+    console.log(`Request: ${config.method?.toUpperCase()} ${config.url}`)
     return config
   },
   (error) => {
@@ -23,12 +22,11 @@ api.interceptors.request.use(
 
 api.interceptors.response.use(
   (response) => {
-    console.log(`✅ Response: ${response.status} ${response.config.url}`)
+    console.log(`Response: ${response.status} ${response.config.url}`)
     return response
   },
   (error) => {
-    console.error(`❌ Error: ${error.message}`)
-    // Você pode adicionar tratamento de erro global aqui
+    console.error(`Error: ${error.message}`)
     return Promise.reject(error)
   }
 )
