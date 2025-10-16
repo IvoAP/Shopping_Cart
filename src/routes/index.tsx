@@ -1,20 +1,21 @@
 import { Home } from "../pages/Home"
 import { Store } from "../pages/Store"
 import { About } from "../pages/About"
+import { PATHS } from "./paths"
 
 export const routes = [
   {
-    path: "/",
+    path: PATHS.HOME,
     element: <Home />,
     title: "Home"
   },
   {
-    path: "/store",
+    path: PATHS.STORE,
     element: <Store />,
     title: "Store"
   },
   {
-    path: "/about",
+    path: PATHS.ABOUT,
     element: <About />,
     title: "About"
   }

@@ -1,6 +1,7 @@
 import { Navbar as NavbarBS, Container, Nav, Button } from "react-bootstrap"
 import { FaShoppingCart } from "react-icons/fa";
 import { useShoppingCart } from "../context/ShoppingCartContext";
+import { PATHS } from "../routes/paths";
 
 export function Navbar() {
     const { cartQuantity } = useShoppingCart()
@@ -9,9 +10,9 @@ export function Navbar() {
         <NavbarBS className="bg-white shadow-sm mb-3">
             <Container> 
                 <Nav className="me-auto">
-                    <Nav.Link href = "/"> Home</Nav.Link>
-                    <Nav.Link href = "/store"> Store</Nav.Link>
-                    <Nav.Link href = "/about"> About</Nav.Link>
+                    <Nav.Link href={PATHS.HOME}> Home</Nav.Link>
+                    <Nav.Link href={PATHS.STORE}> Store</Nav.Link>
+                    <Nav.Link href={PATHS.ABOUT}> About</Nav.Link>
                 </Nav>
                <Button
                 style={{width: "3rem,", height :"3rem", position: "relative"}}
